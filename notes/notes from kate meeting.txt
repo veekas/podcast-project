@@ -1,0 +1,48 @@
+	•	Health - how to deliver healthcare and create a health ecosystem that can live sustainable, healthy productive lives
+	◦	Money -- spending vs results
+	◦	Eating
+	•	Education
+	◦	How to deliver educational (high quality) opportunities at scale --> shown by outcomes
+	◦	Mooc --> increasing the gap not decreasing
+	•	Interested in block chain
+	•	Podcasts (https://www.programmableweb.com/category/podcasts/api)
+	◦	Aggregation site? And you can make it yourself
+	◦	How to splice in ads to make revenue model ad hoc --> manually ad markers of reasonable place to splice
+ 
+ 
+BACKEND
+	File structure
+	Server
+		Start server, middleware
+		REST api
+			Users
+				Get one (by id)
+				Put 
+				Post
+			Podcasts
+	DB
+		Users
+		Podcasts
+			belongTo User? belongsToMany User?
+			Url --> recording file (mp4)
+		?Markers
+			Timestamp
+			User
+			Podcast
+			Ad
+		ERD -- draw out with relationships
+		Implement in schemas in sequelize
+ 
+FRONTEND
+	Wireframes
+		-- draw out general template of site (hand or with online wireframing site) 
+		Consider formats (maybe look at material palette for colors, look at templates (bootstrap and material ui))
+		Pulling from existing layouts right now
+ 
+	1.	File structure
+	2.	Start server
+	3.	Add middleware
+	4.	Make REST api (actual routes)
+	5.	Draw ERD
+	6.	Create schemas in your app (make your db in postgres)
+	7.	Wireframes for front end

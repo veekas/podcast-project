@@ -1,0 +1,7 @@
+APIs:
+
+NLP: https://fluiddata.com/about (paid)
+podcast search: https://www.audiosear.ch/developers (free)
+
+
+Machine learning - podcast recommendations: https://www.forbes.com/sites/sarahrheawerner/2017/04/21/smart-algorithm-predicts-your-next-favorite-podcast/#3f93437d7ef7
