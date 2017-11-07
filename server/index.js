@@ -1,6 +1,5 @@
 const bodyParser = require('body-parser')
 const compression = require('compression')
-const cors = require('cors');
 const express = require('express')
 const morgan = require('morgan')
 const passport = require('passport')
@@ -13,8 +12,6 @@ const app = express()
 const db = require('./db')
 const PORT = process.env.PORT || 8335
 const sessionStore = new SequelizeStore({db})
-const corsOptions = { origin: process.env.ALLOWED_ORIGIN || 'localhost' }
-
 
 /**
  * In your development environment, you can keep all of your
@@ -58,10 +55,6 @@ const createApp = () => {
   app.use('/auth', require('./auth'))
   app.use('/api', require('./api'))
 
-  // parse RSS to JSON TODO later
-  app.use(cors(corsOptions));
-  app.use('/api/rssParser', require('./api/rssParser'));
-
   // static file-serving middleware
   app.use(express.static(path.join(__dirname, '..', 'public')))
   // any remaining requests with an extension (.js, .css, etc.) send 404
@@ -90,10 +83,7 @@ const createApp = () => {
 
 const startListening = () => {
   // start listening (and create a 'server' object representing our server)
-  const server = app.listen(PORT, () => {
-    console.log(`cors allowed origin: ${process.env.ALLOWED_ORIGIN}`);
-    console.log(`Listening to podcasts on port ${PORT}.`)
-});
+  const server = app.listen(PORT, () => console.log(`Listening to podcasts on port ${PORT}.`))
 
   // set up our socket control center
   const io = socketio(server)
