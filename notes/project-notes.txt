@@ -1,8 +1,0 @@
-APIs:
-
-NLP: https://fluiddata.com/about (paid)
-NPR One: https://dev.npr.org/
-podcast search: https://www.audiosear.ch/developers (BEING REMOVED)
-
-
-Machine learning - podcast recommendations: https://www.forbes.com/sites/sarahrheawerner/2017/04/21/smart-algorithm-predicts-your-next-favorite-podcast/#3f93437d7ef7
