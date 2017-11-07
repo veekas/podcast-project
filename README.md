@@ -1,5 +1,9 @@
 # podcast project
 
+## in development
+
 ### TODO
 - everything!
-- clean up gitignore file
+- more specifically:
+  - models
+  - createdb

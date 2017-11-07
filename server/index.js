@@ -43,7 +43,7 @@ const createApp = () => {
 
   // session middleware with passport
   app.use(session({
-    secret: process.env.SESSION_SECRET || 'my best friend is Cody',
+    secret: process.env.SESSION_SECRET || 'this is a secret string',
     store: sessionStore,
     resave: false,
     saveUninitialized: false
@@ -84,7 +84,7 @@ const createApp = () => {
 
 const startListening = () => {
   // start listening (and create a 'server' object representing our server)
-  const server = app.listen(PORT, () => console.log(`Mixing it up on port ${PORT}`))
+  const server = app.listen(PORT, () => console.log(`Listening to podcasts on port ${PORT}.`))
 
   // set up our socket control center
   const io = socketio(server)
