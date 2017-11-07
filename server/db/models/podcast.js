@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-import db from '../db.js';
+const db = require('../db.js');
 
 // note: the seed files are nested; make sure to seed correctly based on that
 // also: how to send "items" array to episodes model? not sure

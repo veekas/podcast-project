@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-import db from '../db.js';
+const db = require('../db.js');
 
 const Episode = db.define('episode', {
   title: {
