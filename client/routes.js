@@ -5,7 +5,8 @@ import {Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import history from './history'
 import {Main, Login, Signup, UserHome} from './components'
-import {me} from './store'
+import { me } from './store'
+import { Player } from './components/container/player'
 
 /**
  * COMPONENT
@@ -22,7 +23,8 @@ class Routes extends Component {
       <Router history={history}>
         <Main>
           <Switch>
-            {/* Routes placed here are available to all visitors */}
+          {/* Routes placed here are available to all visitors */}
+            <Route path="/play" component={Player} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             {
@@ -33,7 +35,7 @@ class Routes extends Component {
                 </Switch>
             }
             {/* Displays home component as a fallback */}
-            <Route component={Main} />
+            <Route component={Player} />
           </Switch>
         </Main>
       </Router>

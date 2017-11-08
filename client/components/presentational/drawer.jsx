@@ -6,7 +6,7 @@ class Drawer extends Component {
   render() {
     return (
       {
-        // temp code
+        // this will be the drawer that shows the menu options
       }
     )
   }
