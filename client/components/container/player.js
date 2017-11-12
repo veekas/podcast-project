@@ -2,14 +2,25 @@
 
 import React, { Component } from 'react'
 
-import { AUDIO_EXTENSIONS, SEEK_ON_PLAY_EXPIRY, canPlay, omit, isObject } from '../../utils/player'
+import { AUDIO_EXTENSIONS, SEEK_ON_PLAY_EXPIRY, canPlay } from '../../utils/player'
 import { propTypes, defaultProps } from '../../props'
 
 export default class Player extends Component {
   static displayName = 'Podcast Player'
   static canPlay = canPlay
+  static propTypes = propTypes
+  static defaultProps = defaultProps
+  mounted = false
+  isReady = false
+  isPlaying = false // Track playing state internally to prevent bugs
+  startOnPlay = true
+  seekOnPlay = null
 
-  componentDidMount() { this.addListeners() }
+  componentDidMount() {
+    this.mounted = true
+    this.player.load(this.props.url, this.isReady)
+    this.addListeners()
+  }
 
   componentWillReceiveProps(nextProps) {
     if (this.shouldUseAudio(this.props) !== this.shouldUseAudio(nextProps)) {
@@ -22,7 +33,13 @@ export default class Player extends Component {
     }
   }
 
-  componentWillUnmount() { this.removeListeners() }
+  componentWillUnmount() {
+    if (this.isReady) {
+      this.player.stop()
+    }
+    this.mounted = false
+    this.removeListeners()
+  }
 
   addListeners() {
     const { onReady, onPlay, onPause, onEnded, onError, playsinline } = this.props

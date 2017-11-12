@@ -1,4 +1,5 @@
 export const AUDIO_EXTENSIONS = /\.(m4a|mp4a|mpga|mp2|mp2a|mp3|m2a|m3a|wav|weba|aac|oga|spx)($|\?)/i
+export const SEEK_ON_PLAY_EXPIRY = 5000
 
 export function canPlay(url) {
   if (url instanceof Array) {
