@@ -1,17 +1,17 @@
-const path = require('path')
-const express = require('express')
-const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const compression = require('compression')
-const session = require('express-session')
+const express = require('express')
+const morgan = require('morgan')
 const passport = require('passport')
+const path = require('path')
+const session = require('express-session')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
-const db = require('./db')
-const sessionStore = new SequelizeStore({db})
-const PORT = process.env.PORT || 8335
-const app = express()
 const socketio = require('socket.io')
-module.exports = app
+
+const app = express()
+const db = require('./db')
+const PORT = process.env.PORT || 8335
+const sessionStore = new SequelizeStore({db})
 
 /**
  * In your development environment, you can keep all of your
@@ -26,9 +26,9 @@ if (process.env.NODE_ENV !== 'production') require('../secrets')
 // passport registration
 passport.serializeUser((user, done) => done(null, user.id))
 passport.deserializeUser((id, done) =>
-  db.models.user.findById(id)
-    .then(user => done(null, user))
-    .catch(done))
+db.models.user.findById(id)
+.then(user => done(null, user))
+.catch(done))
 
 const createApp = () => {
   // logging middleware
@@ -43,7 +43,7 @@ const createApp = () => {
 
   // session middleware with passport
   app.use(session({
-    secret: process.env.SESSION_SECRET || 'my best friend is Cody',
+    secret: process.env.SESSION_SECRET || 'this is a secret string',
     store: sessionStore,
     resave: false,
     saveUninitialized: false
@@ -57,7 +57,6 @@ const createApp = () => {
 
   // static file-serving middleware
   app.use(express.static(path.join(__dirname, '..', 'public')))
-
   // any remaining requests with an extension (.js, .css, etc.) send 404
   .use((req, res, next) => {
     if (path.extname(req.path).length) {
@@ -84,7 +83,7 @@ const createApp = () => {
 
 const startListening = () => {
   // start listening (and create a 'server' object representing our server)
-  const server = app.listen(PORT, () => console.log(`Mixing it up on port ${PORT}`))
+  const server = app.listen(PORT, () => console.log(`Listening to podcasts on port ${PORT}.`))
 
   // set up our socket control center
   const io = socketio(server)
@@ -99,9 +98,11 @@ const syncDb = () => db.sync()
 // if we wanted to require our app in a test spec
 if (require.main === module) {
   sessionStore.sync()
-    .then(syncDb)
-    .then(createApp)
-    .then(startListening)
+  .then(syncDb)
+  .then(createApp)
+  .then(startListening)
 } else {
   createApp()
 }
+
+module.exports = app
