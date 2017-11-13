@@ -4,7 +4,8 @@ import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
 import Duration from '../utils/duration'
 import { version } from '../../package.json'
-import from '../../public/styles.scss'
+import { connect } from 'react-redux';
+require('../../public/styles.scss')
 
 const MULTIPLE_SOURCES = [
   { src: 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4', type: 'video/mp4' },
@@ -12,7 +13,7 @@ const MULTIPLE_SOURCES = [
   { src: 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.webm', type: 'video/webm' }
 ]
 
-export default class Player extends Component {
+class Player extends Component {
   state = {
     url: null,
     playing: true,
@@ -71,9 +72,6 @@ export default class Player extends Component {
       this.setState(state)
     }
   }
-  // onClickFullscreen = () => {
-  //   screenfull.request(findDOMNode(this.player))
-  // }
   onConfigSubmit = () => {
     let config
     try {
@@ -332,3 +330,5 @@ export default class Player extends Component {
     )
   }
 }
+
+export default connect()(Player);
