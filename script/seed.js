@@ -9,8 +9,15 @@
  *
  * Now that you've got the main idea, check it out in practice below!
  */
+const Promise = require('bluebird');
 const db = require('../server/db')
-const {User} = require('../server/db/models')
+const {
+  User,
+  Podcast,
+  Episode
+} = require('../server/db/models')
+
+const ezraData = require('../data/ezra-klein-show.json')
 
 async function seed () {
   await db.sync({force: true})
@@ -19,12 +26,37 @@ async function seed () {
   // executed until that promise resolves!
 
   const users = await Promise.all([
-    User.create({email: 'cody@email.com', password: '123'}),
-    User.create({email: 'murphy@email.com', password: '123'})
-  ])
+    User.create({
+      email: 'veekas@veekasmeansprogress.com',
+      firstName: 'Veekas',
+      lastName: 'Shrivastava',
+      password: '123'
+    }),
+    User.create({
+      email: 'alex.blumberg@gimletmedia.com',
+      firstName: 'Alex',
+      lastName: 'Blumberg'
+    }),
+    User.create({
+      email: 'ezra.klein@voxmedia.com',
+      firstName: 'Ezra',
+      lastName: 'Klein'
+    })
+  ]);
+
+  const podcasts = await Promise.map(ezraData, function (podcast) {
+      return Podcast.create(podcast);
+  });
+
+  const episodes = await Promise.map(ezraData, function (episode) {
+      return Episode.create(episode);
+  });
+
   // Wowzers! We can even `await` on the right-hand side of the assignment operator
   // and store the result that the promise resolves to in a variable! This is nice!
   console.log(`seeded ${users.length} users`)
+  console.log(`seeded ${podcasts.length} users`)
+  console.log(`seeded ${episodes.length} users`)
   console.log(`seeded successfully`)
 }
 
@@ -42,6 +74,28 @@ seed()
     db.close()
     console.log('db connection closed')
   })
+
+  // turn it back to async await
+// db.sync({ force: true })
+//   .then(function () {
+//     console.log('Dropped old podcast data, now inserting new data');
+//     return Promise.map(ezraData, function (podcast) {
+//       return Podcast.create(podcast);
+//     })
+//   })
+//   .then(function () { // does not have to be sequential
+//     return Promise.map(userData, function (user) {
+//       console.log('Creating new users');
+//       return User.create(user);
+//     })
+//   })
+//   .then(function () { //write finally db.close
+//     console.log('Finished inserting pokemon (press ctrl-c to exit)');
+//   })
+//   .catch(function (err) {
+//     console.error('There was totally a problem', err, err.stack);
+//   });
+
 
 /*
  * note: everything outside of the async function is totally synchronous
