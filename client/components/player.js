@@ -110,8 +110,6 @@ export default class Player extends Component {
       <div className="app">
         <section className="section">
           <h1>ReactPlayer Demo</h1>
-          <br /><br /><br /><br /><br /><br />
-          <h1>ReactPlayer Demo</h1>
           <div className="player-wrapper">
             <ReactPlayer
               ref={this.ref}
