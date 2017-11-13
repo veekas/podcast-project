@@ -5,6 +5,12 @@ const db = require('../db.js');
 // also: how to send "items" array to episodes model? not sure
 
 const Podcast = db.define('podcast', {
+  id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true
+  },
   url: {
     type: Sequelize.STRING
   },

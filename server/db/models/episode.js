@@ -2,20 +2,26 @@ const Sequelize = require('sequelize');
 const db = require('../db.js');
 
 const Episode = db.define('episode', {
+  id: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true
+  },
   title: {
-    type: Sequelize.STRING
+    type: Sequelize.TEXT
   },
   pubDate: {
-    type: Sequelize.STRING
+    type: Sequelize.TEXT
   },
   guid: {
-    type: Sequelize.STRING
+    type: Sequelize.TEXT
   },
   author: {
-    type: Sequelize.STRING
+    type: Sequelize.TEXT
   },
   thumbnail: {
-    type: Sequelize.STRING
+    type: Sequelize.TEXT
   },
   description: {
     type: Sequelize.TEXT
@@ -24,10 +30,10 @@ const Episode = db.define('episode', {
     type: Sequelize.TEXT
   },
   link: {
-    type: Sequelize.STRING
+    type: Sequelize.TEXT
   },
   type: {
-    type: Sequelize.STRING
+    type: Sequelize.TEXT
   },
   length: {
     type: Sequelize.INTEGER
