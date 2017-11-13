@@ -17,9 +17,6 @@ const Episode = db.define('episode', {
   guid: {
     type: Sequelize.TEXT
   },
-  author: {
-    type: Sequelize.TEXT
-  },
   thumbnail: {
     type: Sequelize.TEXT
   },

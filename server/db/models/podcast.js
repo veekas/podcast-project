@@ -6,28 +6,28 @@ const db = require('../db.js');
 
 const Podcast = db.define('podcast', {
   id: {
-    type: DataTypes.INTEGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
     autoIncrement: true
   },
   url: {
-    type: Sequelize.STRING
+    type: Sequelize.TEXT
   },
   title: {
-    type: Sequelize.STRING
+    type: Sequelize.TEXT
   },
   link: {
-    type: Sequelize.STRING
+    type: Sequelize.TEXT
   },
   author: {
-    type: Sequelize.STRING
+    type: Sequelize.TEXT
   },
   description: {
     type: Sequelize.TEXT
   },
   image: {
-    type: Sequelize.STRING
+    type: Sequelize.TEXT
   }
 });
 
