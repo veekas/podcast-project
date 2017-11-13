@@ -1,3 +1,5 @@
+'use strict';
+
 const LiveReloadPlugin = require('webpack-livereload-plugin')
 const isDev = process.env.NODE_ENV === 'development'
 

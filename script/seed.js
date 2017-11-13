@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Welcome to the seed file! This seed file uses a newer language feature called...
  *

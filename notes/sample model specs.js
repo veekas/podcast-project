@@ -1,5 +1,7 @@
 'use strict';
 
+'use strict';
+
 /* eslint-disable no-unused-expressions */
 'use strict';
 

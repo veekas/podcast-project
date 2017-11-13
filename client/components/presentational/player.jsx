@@ -1,18 +1,20 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Drawer from './drawer.jsx';
+'use strict';
+
+// import React, { Component } from 'react';
+// import { connect } from 'react-redux';
+// import Drawer from './drawer.jsx';
 
 
-class HomePage extends Component {
+// class HomePage extends Component {
 
-  render() {
-    return (
-      <div className="home-page-container">
-        <Drawer />
-      </div>
-    )
+//   render() {
+//     return (
+//       <div className="home-page-container">
+//         <Drawer />
+//       </div>
+//     )
 
-  }
-}
+//   }
+// }
 
-export default connect()(HomePage);
+// export default connect()(HomePage);

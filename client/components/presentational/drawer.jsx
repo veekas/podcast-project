@@ -1,15 +1,17 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+'use strict';
 
-class Drawer extends Component {
+// import React, { Component } from 'react';
+// import { connect } from 'react-redux';
 
-  render() {
-    return (
-      {
-        // this will be the drawer that shows the menu options
-      }
-    )
-  }
-}
+// class Drawer extends Component {
 
-export default connect()(Drawer);
+//   render() {
+//     return (
+//       {
+//         // this will be the drawer that shows the menu options
+//       }
+//     )
+//   }
+// }
+
+// export default connect()(Drawer);

@@ -1,3 +1,5 @@
+'use strict';
+
 import { podcastDB } from './_db.js';
 
 // definitions

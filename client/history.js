@@ -1,3 +1,5 @@
+'use strict';
+
 import createHistory from 'history/createBrowserHistory'
 import createMemoryHistory from 'history/createMemoryHistory'
 

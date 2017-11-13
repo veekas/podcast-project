@@ -1,12 +1,13 @@
+'use strict';
+
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Router} from 'react-router'
 import {Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import history from './history'
-import {Main, Login, Signup, UserHome} from './components'
+import {Main, Login, Signup, UserHome, Player} from './components'
 import { me } from './store'
-import { Player } from './components/container/player'
 
 /**
  * COMPONENT
@@ -24,7 +25,7 @@ class Routes extends Component {
         <Main>
           <Switch>
           {/* Routes placed here are available to all visitors */}
-            <Route path="/play" component={Player} />
+            <Route path="/" component={Player} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             {

@@ -1,3 +1,5 @@
+'use strict';
+
 const User = require('./user')
 const Podcast = require('./podcast')
 const Episode = require('./episode')

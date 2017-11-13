@@ -1,3 +1,5 @@
+'use strict';
+
 import PropTypes from 'prop-types'
 
 const { string, bool, number, array, oneOfType, shape, object, func } = PropTypes
